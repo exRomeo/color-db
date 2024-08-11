@@ -43,10 +43,31 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         setupViews()
-
+        attachFunctionalityToUIComponents()
         saveButton.setOnClickListener {
             viewModel.insertColor(ColorModel(id = r+g+b, name = Color.rgb(r,g,b).toHexString(HexFormat.UpperCase), r = r, g = g, b = b))
         }
+    }
+
+
+    private fun setupViews() {
+        saveButton = findViewById(R.id.button)
+        rSlider = findViewById(R.id.r_seekbar)
+        gSlider = findViewById(R.id.g_seekbar)
+        bSlider = findViewById(R.id.b_seekbar)
+        colorBox = findViewById(R.id.color_box)
+        colorRecyclerView = findViewById(R.id.color_rcv)
+        val adapter = RCVAdapter(emptyList())
+
+        viewModel.colorsList.observe(this) {
+            adapter.updateData(it)
+        }
+        colorRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        colorRecyclerView.adapter = adapter
+    }
+
+    private fun attachFunctionalityToUIComponents(){
         rSlider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 Log.i(TAG, "r: ${p0?.progress}")
@@ -65,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         gSlider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 Log.i(TAG, "g: ${p0?.progress}")
-               g= p0?.progress ?: 0
+                g= p0?.progress ?: 0
                 colorBox.setBackgroundColor(Color.rgb(r,g,b))
 
             }
@@ -93,23 +114,5 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-    }
-
-
-    private fun setupViews() {
-        saveButton = findViewById(R.id.button)
-        rSlider = findViewById(R.id.r_seekbar)
-        gSlider = findViewById(R.id.g_seekbar)
-        bSlider = findViewById(R.id.b_seekbar)
-        colorBox = findViewById(R.id.color_box)
-        colorRecyclerView = findViewById(R.id.color_rcv)
-        val adapter = RCVAdapter(emptyList())
-
-        viewModel.colorsList.observe(this) {
-            adapter.updateData(it)
-        }
-        colorRecyclerView.layoutManager = LinearLayoutManager(this)
-
-        colorRecyclerView.adapter = adapter
     }
 }
