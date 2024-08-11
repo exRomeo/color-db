@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity() {
         }
         rSlider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                Log.i(TAG, "r: ${p0?.progress}")
                 r = p0?.progress ?: 0
                 colorBox.setBackgroundColor(Color.rgb(r,g,b))
             }
@@ -64,7 +63,6 @@ class MainActivity : AppCompatActivity() {
 
         gSlider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                Log.i(TAG, "g: ${p0?.progress}")
                g= p0?.progress ?: 0
                 colorBox.setBackgroundColor(Color.rgb(r,g,b))
 
@@ -80,7 +78,6 @@ class MainActivity : AppCompatActivity() {
 
         bSlider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                Log.i(TAG, "b: ${p0?.progress}")
                 b = p0?.progress ?: 0
                 colorBox.setBackgroundColor(Color.rgb(r,g,b))
 
