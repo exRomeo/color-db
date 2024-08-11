@@ -13,4 +13,6 @@ class ColorEntity(
     val r: Int,
     val g: Int,
     val b: Int
-)
+){
+    fun getColor(): Int = Color.rgb(r,g,b)
+}
