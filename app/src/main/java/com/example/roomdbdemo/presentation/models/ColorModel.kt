@@ -1,4 +1,4 @@
-package com.example.roomdbdemo
+package com.example.roomdbdemo.presentation.models
 
 import android.graphics.Color
 

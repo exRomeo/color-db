@@ -1,4 +1,4 @@
-package com.example.roomdbdemo
+package com.example.roomdbdemo.presentation
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -8,6 +8,7 @@ import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import com.example.roomdbdemo.data.localsource.room_db.dao.ColorDao
 import com.example.roomdbdemo.data.localsource.room_db.entity.ColorEntity
+import com.example.roomdbdemo.presentation.models.ColorModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 

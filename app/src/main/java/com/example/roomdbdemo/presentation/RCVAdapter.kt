@@ -1,4 +1,4 @@
-package com.example.roomdbdemo
+package com.example.roomdbdemo.presentation
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.roomdbdemo.R
+import com.example.roomdbdemo.presentation.models.ColorModel
 
 class RCVAdapter(var colorsList: List<ColorModel>) :
     RecyclerView.Adapter<RCVAdapter.ColorViewHolder>() {

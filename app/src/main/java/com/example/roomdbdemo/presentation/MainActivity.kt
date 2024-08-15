@@ -1,8 +1,7 @@
-package com.example.roomdbdemo
+package com.example.roomdbdemo.presentation
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.SeekBar
@@ -13,7 +12,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.roomdbdemo.R
 import com.example.roomdbdemo.data.localsource.room_db.database.ColorDataBase
+import com.example.roomdbdemo.presentation.models.ColorModel
 
 const val TAG = "slider"
 class MainActivity : AppCompatActivity() {
